@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Untitled Document</title>
+</head>
+
+<body></body>
+<script>
+    window.log = log = function() {
+        let out = "",
+            fun_name = arguments.callee.caller ?
+            arguments.callee.caller.name || "输出" :
+            typeof window !== undefined ?
+            "WINDOW" :
+            "NODE";
+        for (const arg of arguments) {
+            out += arg + " ";
+        }
+        return [
+            `%c${fun_name}:%c${out}`,
+            "background: #00cc00; color: #fff; border-radius: 3px 0 0 3px;padding:2px 5px",
+            "background: #1475B2; color: #fff; border-radius: 0 3px 3px 0;padding:2px 5px",
+        ];
+    };
+</script>
+<script src="./myfilter.js"></script>
+<script src="./once.js"></script>
+<script src="./myInterval.js"></script>
+
+</html>
