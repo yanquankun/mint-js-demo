@@ -8,7 +8,8 @@ js 练习+插件库
 |---progress-bar.js-->滚动条插件  
   
 ========progress-bar.js========  
-自动注册 progress 到 window 中  
+自动注册 progress 到 window 中   
+引入方式：<script src="./progress-bar.js"></script>  
 progress API：  
 【init({})】: 初始化方法 参数：初始化参数对象或者不传，不传时默认生成一个进度条插入到 body 中,如果传入参数则 domId 为必传  
 init 方法参数：  
