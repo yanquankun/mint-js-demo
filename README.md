@@ -10,7 +10,7 @@ js 练习+插件库
 ========progress-bar.js========  
 自动注册 progress 到 window 中  
 progress API：  
-init({}): 初始化方法 参数：初始化参数对象或者不传，不传时默认生成一个进度条插入到 body 中,如果传入参数则 domId 为必传  
+【init({})】: 初始化方法 参数：初始化参数对象或者不传，不传时默认生成一个进度条插入到 body 中,如果传入参数则 domId 为必传  
 `  
 init 方法参数：  
 - domId 当前进度条 domID  
@@ -42,8 +42,8 @@ init 方法参数：
   tsBgc: "rgb(118, 189, 251)",  
   tsColor: "rgb(255,255,255)",  
   showTopSlider: true,  
-  `  
-delPDom(domId): 删除进度条 参数：domId：进度条的id forward(domId,progressNum): 进度条前进 参数：domId：进度条的id | progressNum：前进的比例，Number 如20   
+`  
+【delPDom(domId)】: 删除进度条 参数：domId：进度条的id forward(domId,progressNum): 进度条前进 参数：domId：进度条的id | 【progressNum】：前进的比例，Number 如20   
 Example:  
 `  
 var progress_ins = progress.init({  
