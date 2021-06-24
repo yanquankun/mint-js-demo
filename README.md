@@ -55,5 +55,5 @@ setInterval(() => {
     progress.delPDom(progress_ins2.domId);  
 }, 5000)  
 
-[进度条页面](http://39.97.119.181/mint-js-demo/test.html)
-
+[进度条预览页面](http://39.97.119.181/mint-js-demo/test.html)  
+![进度条图片示例：](./imgs/进度条.png)
