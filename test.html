@@ -3,9 +3,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Untitled Document</title>
+    <style>
+        [id^=progress] {
+            margin: 70px;
+        }
+    </style>
 </head>
 
-<body></body>
+<body>
+    <div id="progress1"></div>
+</body>
 <script>
     window.log = log = function() {
         let out = "",
@@ -24,9 +31,21 @@
         ];
     };
 </script>
-<script src="./myfilter.js"></script>
+<!-- <script src="./myfilter.js"></script>
 <script src="./once.js"></script>
-<script src="./myInterval.js"></script>
+<script src="./myInterval.js"></script> -->
 <script src="./progress-bar.js"></script>
+<script>
+    var progress_ins = progress.init({
+        domId: "progress1",
+    });
+    progress.forward(progress_ins.domId, 30);
+
+    var progress_ins2 = progress.init({});
+    progress.forward(progress_ins2.domId, 66.6);
+    // setInterval(() => {
+    //     progress.delPDom(progress_ins2.domId);
+    // }, 5000)
+</script>
 
 </html>
