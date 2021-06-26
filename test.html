@@ -2,9 +2,9 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Untitled Document</title>
+    <title>mint-js-demo</title>
     <style>
-        [id^=progress] {
+        [id^="progress"] {
             margin: 70px;
         }
     </style>
@@ -31,21 +31,25 @@
         ];
     };
 </script>
-<script src="./myfilter.js"></script>
-<script src="./once.js"></script>
-<script src="./myInterval.js"></script>
-<script src="./progress-bar.js"></script>
+<!-- <script src="./myfilter.js"></script> -->
+<!-- <script src="./once.js"></script> -->
+<!-- <script src="./myInterval.js"></script> -->
+<!-- <script src="./progress-bar.js"></script> -->
+<!-- <script src="./myPromise.js"></script> -->
+<script src="./vue.test.js"></script>
 <script>
-    var progress_ins = progress.init({
-        domId: "progress1",
-    });
-    progress.forward(progress_ins.domId, 30);
+    if (window.progress) {
+        var progress_ins = progress.init({
+            domId: "progress1",
+        });
+        progress.forward(progress_ins.domId, 30);
 
-    var progress_ins2 = progress.init({});
-    progress.forward(progress_ins2.domId, 66.6);
-    setInterval(() => {
-        progress.delPDom(progress_ins2.domId);
-    }, 5000)
+        var progress_ins2 = progress.init({});
+        progress.forward(progress_ins2.domId, 66.6);
+        setInterval(() => {
+            progress.delPDom(progress_ins2.domId);
+        }, 5000);
+    }
 </script>
 
 </html>

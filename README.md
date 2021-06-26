@@ -6,6 +6,8 @@ js 练习+插件库
 |---myInterval.js-->定时器实现  
 |---once.js-->vue $once 方法实现  
 |---progress-bar.js-->滚动条插件  
+|---myPromise.js-->promise实现  
+|---vue.test.js-->vue源码学习  
   
 ========progress-bar.js========  
 自动注册 progress 到 window 中   
