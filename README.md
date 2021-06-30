@@ -8,6 +8,7 @@ js 练习+插件库
 |---progress-bar.js-->滚动条插件  
 |---myPromise.js-->promise实现  
 |---vue.test.js-->vue源码学习  
+|---bigNumAdd.js-->两个大数相加  
   
 ========progress-bar.js========  
 自动注册 progress 到 window 中   
