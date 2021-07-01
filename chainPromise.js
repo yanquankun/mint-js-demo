@@ -73,10 +73,6 @@ class PromiseChain {
     this.callbacks.forEach((callback) => this._handle(callback));
   }
 
-  finaly(fn) {
-    console.log(fn);
-    fn();
-  }
 }
 
 //Promise应用
