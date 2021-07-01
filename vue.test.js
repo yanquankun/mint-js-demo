@@ -122,4 +122,6 @@ class Observer {
 
 const new_obj = new Observer(obj);
 console.log(new_obj);
+console.log(Object.getOwnPropertyNames(new_obj))
+console.log(Object.keys(new_obj))
 console.log(new_obj.name);

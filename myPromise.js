@@ -24,7 +24,7 @@ const p1 = new Promise((reslove, reject) => {
 const p2 = new Promise((reslove, reject) => {
   setTimeout(() => {
     reslove("second");
-  }, 1500);
+  }, 500);
 });
 // Promise.race([p1, p2]).then((res) => {
 //     console.log(res);
@@ -59,7 +59,7 @@ class MyP extends Promise {
               result[i] = res; // 按顺序返回响应值
               if (
                 result.length == len &&
-                result.filter((v) => v).length == len
+                result.filter((v) => v !== undefined).length == len // 判断数组每一项都部位empty
               ) {
                 resolve(result);
               }
