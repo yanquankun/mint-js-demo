@@ -9,6 +9,8 @@ js 练习+插件库
 |---myPromise.js-->promise实现  
 |---vue.test.js-->vue源码学习  
 |---bigNumAdd.js-->两个大数相加  
+|---simplePromise.js-->promise简单实现（非真正链式调用）  
+|---chainPromise.js-->promise实现链式调用    
   
 ========progress-bar.js========  
 自动注册 progress 到 window 中   

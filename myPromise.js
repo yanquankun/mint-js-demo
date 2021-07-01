@@ -90,6 +90,16 @@ class MyP extends Promise {
       }
     });
   }
+
+  finally(onDone) {
+    if (typeof onDone !== 'function') return this.then();
+
+    let Promise = this.constructor;
+    return this.then(
+      value => Promise.resolve(onDone()).then(() => value),
+      reason => Promise.resolve(onDone()).then(() => { throw reason })
+    );
+  }
 }
 const myp = new MyP(((r) => {}, (j) => {}));
 console.log(myp);
@@ -238,7 +248,7 @@ myp.myRace([p1, p2]).then((res) => {
 //       _doResolve(then.bind(newValue), self);
 //       return;
 //     }
-//   }
+//
 //   self._state = 1;
 //   self._value = newValue;
 //   _finale(self);
