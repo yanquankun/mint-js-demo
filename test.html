@@ -38,7 +38,9 @@
   <!-- <script src="./bigNumAdd.js"></script> -->
   <!-- <script src="./vue.test.js"></script> -->
   <!-- <script src="./simplePromise.js"></script> -->
-  <script src="./chainPromise.js"></script>
+  <!-- <script src="./chainPromise.js"></script> -->
+  <script src="./subscribe.js"></script>
+  <!-- <script src="./observer.js"></script> -->
   <script>
     if (window.progress) {
       var progress_ins = progress.init({
@@ -52,5 +54,17 @@
         progress.delPDom(progress_ins2.domId);
       }, 10000);
     }
+  </script>
+  <script>
+    var subject = window.PubSub;
+    var sub1 = subject.subscribe("test", function (res) {
+      console.log("sub1:", res);
+    });
+    var sub2 = subject.subscribe("test", function (res) {
+      console.log("sub2:", res);
+    });
+    subject.publish("test", "我是发布订阅模式");
+    subject.unSubscribe(sub1);
+    subject.publish("test", "我是发布订阅模式1");
   </script>
 </html>
