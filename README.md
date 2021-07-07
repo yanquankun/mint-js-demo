@@ -13,6 +13,7 @@ js 练习+插件库
 |---chainPromise.js-->promise实现链式调用      
 |---subscribe.js-->发布订阅者模式实现  
 |---plugin-amd-cmd.js-->插件模块化规范  
+|---indexDB.js-->浏览器数据库使用    
   
 ========progress-bar.js========  
 自动注册 progress 到 window 中   
