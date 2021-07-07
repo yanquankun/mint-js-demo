@@ -56,15 +56,34 @@
     }
   </script>
   <script>
-    var subject = window.PubSub;
-    var sub1 = subject.subscribe("test", function (res) {
-      console.log("sub1:", res);
+    // 发布订阅模式测试
+    var subId1 = PubSub.subscribe("test", function (res, topicName) {
+      console.log("subId1:", res, topicName);
     });
-    var sub2 = subject.subscribe("test", function (res) {
-      console.log("sub2:", res);
+    var subId2 = PubSub.subscribe("test", function (res, topicName) {
+      console.log("subId2:", res, topicName);
     });
-    subject.publish("test", "我是发布订阅模式");
-    subject.unSubscribe(sub1);
-    subject.publish("test", "我是发布订阅模式1");
+    PubSub.publish("test", "我是发布订阅模式");
+    PubSub.unSubscribe(subId1);
+    PubSub.publish("test", "我是发布订阅模式1");
+    PubSub.unSubscribe(subId2);
+    PubSub.publish("test", "我是发布订阅模式2");
+    var subId3 = PubSub.subscribe("test", function (res, topicName) {
+      console.log("subId3:", res, topicName);
+    });
+    PubSub.publish("test", "我是发布订阅模式3");
+    var subId4 = PubSub.subscribe("test1", function (res) {
+      console.log("subId4:", res);
+    });
+    PubSub.publish("test1", "我是发布订阅模式4");
+    var sync = function (res, topicName) {
+      setTimeout(() => {
+        console.log("subId5:", res, topicName);
+      }, 500);
+    };
+    var subId5 = PubSub.subscribe("test2", sync);
+    PubSub.publish("test2", "我是异步发布订阅模式5");
+    PubSub.publishSync("test2", "我是异步1s发布订阅模式6", 1000);
+    PubSub.publishSync("test2", "我是异步2s发布订阅模式7", 2000);
   </script>
 </html>
