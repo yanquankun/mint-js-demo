@@ -1,5 +1,5 @@
 console.log(...log("发布订阅者模式:"));
-// 借鉴https://github.com/mroderick/PubSubJS/blob/master/src/pubsub.js#L18
+// 借鉴https://github.com/mroderick/PubSubJS/blob/master/src/pubsub.js#L18 功能
 
 (function (root, factory) {
   "use strict";
@@ -20,7 +20,18 @@ console.log(...log("发布订阅者模式:"));
     });
   }
 })((typeof window === "object" && window) || this, function (PubSub) {
-  var topicStack = Object.create(null); // topic调用栈
+  var broker = Object.create(null); // 消息中转站 处理消息
+  /**
+   * broker 格式：
+   * {
+   *    topicName:[
+   *        {
+   *            id:subjectId,// 当前订阅者id
+   *            callback:Function // 消息发布后，执行的回调
+   *        },
+   *    ]
+   * }
+   */
 
   var isFn = function (fn) {
     return Object.prototype.toString.call(fn) == "[object Function]";
@@ -59,10 +70,10 @@ console.log(...log("发布订阅者模式:"));
    */
   PubSub.publish = function (topicName, message) {
     var topicName = String(topicName);
-    if (!hasKey(topicStack, topicName)) return true;
+    if (!hasKey(broker, topicName)) return true;
     message = typeof message === "symbol" ? message.toString() : message;
-    if (topicStack[topicName] && topicStack[topicName].length) {
-      var cbs = topicStack[topicName],
+    if (broker[topicName] && broker[topicName].length) {
+      var cbs = broker[topicName],
         i = 0;
       for (; i < cbs.length; i++) {
         cbs[i]["callback"].call(this, message, topicName);
@@ -91,8 +102,8 @@ console.log(...log("发布订阅者模式:"));
     if (!isFn(callback)) throw new Error(`callback is not a Funciton`);
     var topicName = String(topicName),
       id = `${topicName}_${guid()}`;
-    if (!hasKey(topicStack, topicName)) topicStack[topicName] = [];
-    topicStack[topicName].push({
+    if (!hasKey(broker, topicName)) broker[topicName] = [];
+    broker[topicName].push({
       id: id,
       callback: callback,
     });
@@ -100,11 +111,11 @@ console.log(...log("发布订阅者模式:"));
   };
 
   PubSub.unSubscribe = function (subId) {
-    for (var k in topicStack) {
-      var idx = topicStack[k].findIndex(function (v) {
+    for (var k in broker) {
+      var idx = broker[k].findIndex(function (v) {
         return v.id == subId;
       });
-      idx != -1 && topicStack[k].splice(idx, 1);
+      idx != -1 && broker[k].splice(idx, 1);
       break;
     }
   };
