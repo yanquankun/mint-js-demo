@@ -13,6 +13,17 @@
     <div id="progress1"></div>
   </body>
   <script>
+    // js错误分析
+    window.onerror = function (msg, url, line, col, error) {
+      console.log("控制台错误输出信息：", msg);
+      console.log("错误文件名:", url);
+      console.log("错误行号:", line);
+      console.log("错误列号:", col);
+      console.log("Error对象:", error);
+      return true; // 浏览器不输出错误信息到控制台
+    };
+  </script>
+  <script>
     window.log = log = function () {
       let out = "",
         fun_name = arguments.callee.caller
