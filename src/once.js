@@ -18,3 +18,4 @@ var oc2 = once(function(n) {
 });
 oc2(3);
 oc2(4);
+export default once;

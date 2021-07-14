@@ -1,19 +1,21 @@
 js 练习+插件库  
 ========项目结构========  
-|-------mint-js-demo------  
-|---test.html-->测试页面  
-|---myfilter.js-->数组 filter 方法实现  
-|---myInterval.js-->定时器实现  
-|---once.js-->vue $once 方法实现  
-|---progress-bar.js-->滚动条插件  
-|---myPromise.js-->promise实现  
-|---vue.test.js-->vue源码学习  
-|---bigNumAdd.js-->两个大数相加  
-|---simplePromise.js-->promise简单实现（非真正链式调用）  
-|---chainPromise.js-->promise实现链式调用      
-|---subscribe.js-->发布订阅者模式实现  
-|---plugin-amd-cmd.js-->插件模块化规范  
-|---indexDB.js-->浏览器数据库使用    
+|-------mint-js-demo------ 
+|--plugin-amd-cmd.js-->插件模块化规范  
+|--test.html-->入口页面  
+|--index.js-->入口js    
+|--src  
+|----myfilter.js-->数组 filter 方法实现  
+|----myInterval.js-->定时器实现  
+|----once.js-->vue $once 方法实现  
+|----progress-bar.js-->滚动条插件  
+|----myPromise.js-->promise实现  
+|----vue.test.js-->vue源码学习  
+|----bigNumAdd.js-->两个大数相加  
+|----simplePromise.js-->promise简单实现（非真正链式调用）  
+|----chainPromise.js-->promise实现链式调用      
+|----subscribe.js-->发布订阅者模式实现  
+|----indexDB.js-->浏览器数据库使用    
   
 ========progress-bar.js========  
 自动注册 progress 到 window 中   
