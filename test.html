@@ -41,17 +41,17 @@
       ];
     };
   </script>
-  <!-- <script src="./myfilter.js"></script> -->
-  <!-- <script src="./once.js"></script> -->
-  <!-- <script src="./myInterval.js"></script> -->
-  <!-- <script src="./progress-bar.js"></script> -->
-  <!-- <script src="./myPromise.js"></script> -->
-  <!-- <script src="./bigNumAdd.js"></script> -->
-  <!-- <script src="./vue.test.js"></script> -->
-  <!-- <script src="./simplePromise.js"></script> -->
-  <!-- <script src="./chainPromise.js"></script> -->
-  <!-- <script src="./subscribe.js"></script> -->
-  <!-- <script src="./indexDB.js"></script> -->
+  <!-- <script src="./src/myfilter.js"></script> -->
+  <!-- <script src="./src/once.js"></script> -->
+  <!-- <script src="./src/myInterval.js"></script> -->
+  <script src="./src/progress-bar.min.js"></script>
+  <!-- <script src="./src/myPromise.js"></script> -->
+  <!-- <script src="./src/bigNumAdd.js"></script> -->
+  <!-- <script src="./src/vue.test.js"></script> -->
+  <!-- <script src="./src/simplePromise.js"></script> -->
+  <!-- <script src="./src/chainPromise.js"></script> -->
+  <!-- <script src="./src/subscribe.js"></script> -->
+  <!-- <script src="./src/indexDB.js"></script> -->
   <script>
     if (window.progress) {
       var progress_ins = progress.init({
@@ -66,7 +66,7 @@
       }, 10000);
     }
   </script>
-  <script>
+  <!-- <script>
     // 发布订阅模式测试
     if (window.PubSub) {
       var subId1 = PubSub.subscribe("test", function (res, topicName) {
@@ -98,5 +98,5 @@
       PubSub.publishSync("test2", "我是异步1s发布订阅模式6", 1000);
       PubSub.publishSync("test2", "我是异步2s发布订阅模式7", 2000);
     }
-  </script>
+  </script> -->
 </html>

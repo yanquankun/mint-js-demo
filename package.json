@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "webpack": "webpack"
+    "start": "npx webpack serve",
+    "webpack": "webpack",
+    "build:progress":"sh progress-build.sh"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,19 @@
   },
   "homepage": "https://github.com/yanquankun/mint-js-demo#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "glob": "^7.1.7",
+    "html-webpack-plugin": "^5.3.2",
+    "json-loader": "^0.5.7",
+    "json5-loader": "^4.0.1",
+    "raw-loader": "^4.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.44.0",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "mint-progress-bar": "file:mint-progress-bar"
   }
 }

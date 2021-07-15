@@ -1,0 +1,25 @@
+{
+  "name": "mint-progress-bar",
+  "version": "1.0.0",
+  "description": "js进度条插件",
+  "main": "progress-bar.js",
+  "private": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanquankun/mint-js-demo.git"
+  },
+  "keywords": [
+    "mint",
+    "progress-bar"
+  ],
+  "author": "闫全堃 (mint)",
+  "license": "ISC",
+  "email": "17600610907@163.com",
+  "bugs": {
+    "url": "https://github.com/yanquankun/mint-js-demo/issues"
+  },
+  "homepage": "https://github.com/yanquankun/mint-js-demo#readme"
+}
