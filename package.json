@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx webpack serve",
     "webpack": "webpack",
-    "build:progress":"sh progress-build.sh"
+    "build:progress": "sh progress-build.sh || progress-build.bat"
   },
   "repository": {
     "type": "git",
