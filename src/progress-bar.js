@@ -164,7 +164,7 @@ var topSliderAnimation = function (domId, open, timerId) {
   var dom = document.getElementById(domId),
     timer = null,
     deg = 25;
-  dom.style && (dom.style.transitionDuration = "500ms");
+  dom && (dom.style.transitionDuration = "500ms");
   if (dom && open) {
     // 左右摇晃
     timer = setInterval(function () {
