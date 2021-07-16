@@ -73,5 +73,4 @@ setInterval(() => {
 }, 5000)  
 
 [进度条预览页面](http://39.97.119.181/mint-js-demo/test.html)  
-[github地址](https://github.com/yanquankun/mint-js-demo)  
 ![进度条图片示例：](./imgs/进度条.png)

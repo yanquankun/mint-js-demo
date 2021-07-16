@@ -1,6 +1,11 @@
+author: 闫全堃 (mint)  
+email: 17600610907@163.com  
+desc: 进度条插件，支持展示百分比以及动态加载进度  
 =======progress-bar.js========  
-自动注册 progress 到 window 中   
-引入方式：<script src="./node_modules/mint-progress-bar/progress-bar-min.js"></script>  
+引入方式：支持commonJS和amd的引入方式：  
+<script src="progress-bar.js"></script>  
+or  const progress = require("mint-progress-bar");  
+or  import { progress } from "mint-progress-bar";  
 progress API：  
 【init({})】: 初始化方法 参数：初始化参数对象或者不传，不传时默认生成一个进度条插入到 body 中,如果传入参数则 domId 为必传  
 init 方法参数：  
@@ -48,4 +53,5 @@ setInterval(() => {
 }, 5000)  
 
 [进度条预览页面](http://39.97.119.181/mint-js-demo/test.html)  
+[github地址](https://github.com/yanquankun/mint-js-demo)  
 ![进度条图片示例：](./imgs/进度条.png)  
