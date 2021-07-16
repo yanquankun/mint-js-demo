@@ -9,7 +9,7 @@ desc: 进度条插件，支持展示百分比以及动态加载进度
 引入方式：支持commonJS和amd的引入方式：  
 <script src="progress-bar.js"></script>  
 or  const progress = require("mint-progress-bar");  
-or  import { progress } from 'mint-progress-bar';  
+or  import progress from 'mint-progress-bar';   
 progress API：  
 【init({})】: 初始化方法 参数：初始化参数对象或者不传，不传时默认生成一个进度条插入到 body 中,如果传入参数则 domId 为必传  
 init 方法参数：  
