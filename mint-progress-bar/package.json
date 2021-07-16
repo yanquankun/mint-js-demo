@@ -1,6 +1,6 @@
 {
   "name": "mint-progress-bar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "js进度条插件",
   "main": "progress-bar.js",
   "private": false,

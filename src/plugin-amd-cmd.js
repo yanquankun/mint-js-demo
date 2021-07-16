@@ -1,3 +1,5 @@
+// 可用于script方式引入时的插件模块化规范
+// 使用webpack不需要使用此方式
 !(function (_, factory) {
     "use static";
    

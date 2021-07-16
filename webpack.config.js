@@ -25,6 +25,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].min.js",
+    library:"[name]",
+    libraryTarget: "umd" // 指定js模块组织是遵循的什么规范（坑爹，没这个值，打包后的js引入无法使用amd规范）
   },
   watch: true,
   devServer: {
@@ -61,15 +63,17 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      chunks: ["progress-bar"],
+      chunks: ["mint-progress-bar/progress-bar"],
       title: "Mint插件",
       filename: "index.html",
       template: "test.html",
       minify: {
         //压缩HTML文件
         removeComments: true, //移除HTML中的注释
+        removeScriptTypeAttributes: true,
         collapseWhitespace: true, //删除空白符与换行符
       },
+      // hash: true,
     }),
     new UglifyJsPlugin(),
   ],

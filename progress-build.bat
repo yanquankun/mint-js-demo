@@ -12,6 +12,6 @@ if  %errorlevel% == 0(
 )else(
     echo "build mint-progress-bar success
     del f nohup.out
-    cp -r ./dist/mint-progress-bar/progress-bar.min.js ./mint-progress-bar/
+    xcopy /c/e/q .\dist\mint-progress-bar\progress-bar.min.js .\mint-progress-bar\progress-bar.js
 )
 
