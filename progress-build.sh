@@ -13,6 +13,6 @@ if [ $? -ne 0 ]; then
 else
     echo "打包mint-progress-bar插件完成"
     rm -rf nohup.out
-    cp -r ./dist/mint-progress-bar/progress-bar.min.js ./mint-progress-bar/ 
+    cp -r ./dist/mint-progress-bar/progress-bar.min.js ./mint-progress-bar/
 fi
 

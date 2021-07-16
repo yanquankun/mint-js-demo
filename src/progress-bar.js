@@ -11,7 +11,7 @@
       exports = module.exports = progress; // Node.js specific `module.exports`
     }
     exports.progress = progress; // CommonJS module 1.1.1 spec
-    module.exports = exports = progress; // CommonJS
+    // module.exports = exports = progress; // CommonJS
   }
   // AMD support
   /* eslint-disable no-undef */
