@@ -28,6 +28,7 @@ module.exports = {
     library:"[name]",
     libraryTarget: "umd" // 指定js模块组织是遵循的什么规范（坑爹，没这个值，打包后的js引入无法使用amd规范）
   },
+  devtool: "source-map",
   watch: true,
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -73,8 +74,10 @@ module.exports = {
         removeScriptTypeAttributes: true,
         collapseWhitespace: true, //删除空白符与换行符
       },
-      // hash: true,
+      hash: true,
     }),
-    new UglifyJsPlugin(),
+    new UglifyJsPlugin({
+      sourceMap: true // 启动sourceMap 必须  否则devtool不生效
+    }),
   ],
 };

@@ -174,7 +174,7 @@ var topSliderAnimation = function (domId, open, timerId) {
   } else {
     clearInterval(timerId);
     flag = null;
-    dom.style.transform = "rotate(45deg) translateX(-50%)";
+    dom && (dom.style.transform = "rotate(45deg) translateX(-50%)");
   }
   return timer;
 };

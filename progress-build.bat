@@ -5,7 +5,7 @@ del /q .\mint-progress-bar\progress-bar.js
 del /q .\mint-progress-bar\progress-bar.min.js
 rd/s/q /q .\dist
 
-start /wait npm run webpack
+start /wait npm run build
 REM 存在问题，webpack后无法执行后续命令，待后续解决
 if  %errorlevel% == 0(
     echo build mint-progress-bar fail
