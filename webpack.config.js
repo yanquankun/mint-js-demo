@@ -30,7 +30,7 @@ module.exports = {
   },
   devtool: "source-map",
   watch: true,
-  devServer: {
+  devServer: { // /webpack-dev-server路由可查看wp打包文件
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 5000,
@@ -65,7 +65,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       chunks: ["mint-progress-bar/progress-bar"],
-      title: "Mint插件",
+      title: "mint-js-demo",
       filename: "index.html",
       template: "test.html",
       minify: {
@@ -75,6 +75,7 @@ module.exports = {
         collapseWhitespace: true, //删除空白符与换行符
       },
       hash: true,
+      cache:false, // 仅当文件被更改时才发出文件
     }),
     new UglifyJsPlugin({
       sourceMap: true // 启动sourceMap 必须  否则devtool不生效
