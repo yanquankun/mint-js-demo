@@ -4,7 +4,9 @@ const TerserPlugin = require("terser-webpack-plugin"); // js压缩 cli v5及之�
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // 清楚上次的dist目录
 var HtmlWebpackPlugin = require("html-webpack-plugin"); //打包html的插件
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin"); // 压缩js
+const fsPlugin = require("./fs"); // 自定义fs插件
 
+// 读取静态资源映射
 const files = glob.sync("./src/*.js");
 let newEntries = {};
 files.forEach(function (f) {
@@ -19,21 +21,20 @@ newEntries = Object.assign(
   newEntries
 );
 
-module.exports = {
+var config = {
   entry: Object.assign({}, newEntries),
-  mode: "none",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].min.js",
-    library:"[name]",
-    libraryTarget: "umd" // 指定js模块组织是遵循的什么规范（坑爹，没这个值，打包后的js引入无法使用amd规范）
+    library: "[name]",
+    libraryTarget: "umd", // 指定js模块组织是遵循的什么规范（坑爹，没这个值，打包后的js引入无法使用amd规范）
   },
-  devtool: "source-map",
   watch: true,
-  devServer: { // /webpack-dev-server路由可查看wp打包文件
+  devServer: {
+    // /webpack-dev-server路由可查看wp打包文件
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 5000,
+    port: 5000
   },
   optimization: {
     minimize: true,
@@ -75,10 +76,26 @@ module.exports = {
         collapseWhitespace: true, //删除空白符与换行符
       },
       hash: true,
-      cache:false, // 仅当文件被更改时才发出文件
+      cache: false, // 仅当文件被更改时才发出文件
     }),
     new UglifyJsPlugin({
-      sourceMap: true // 启动sourceMap 必须  否则devtool不生效
+      sourceMap: true, // 启动sourceMap 必须  否则devtool不生效
     }),
+    new fsPlugin(
+      "./dist/process.json",
+      JSON.stringify(process.env, null, "\t"),
+      "fsWrite"
+    ),
   ],
+};
+module.exports = (env, argv) => {
+  if (config.mode === "development") {
+    config.devtool = "source-map";
+  }
+
+  if (argv.mode === "production") {
+    config.devtool = "cheap-module-source-map";
+  }
+
+  return config;
 };
