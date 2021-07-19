@@ -4,7 +4,7 @@ const TerserPlugin = require("terser-webpack-plugin"); // js压缩 cli v5及之�
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // 清楚上次的dist目录
 var HtmlWebpackPlugin = require("html-webpack-plugin"); //打包html的插件
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin"); // 压缩js
-const fsPlugin = require("./fs"); // 自定义fs插件
+const fsPlugin = require("./fs-plugin"); // 自定义fs插件
 
 // 读取静态资源映射
 const files = glob.sync("./src/*.js");
