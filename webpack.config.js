@@ -34,7 +34,7 @@ var config = {
     // /webpack-dev-server路由可查看wp打包文件
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 5000
+    port: 5000,
   },
   optimization: {
     minimize: true,
@@ -60,15 +60,41 @@ var config = {
           },
         },
       },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+        options: {
+          preprocessor: (content, loaderContext) => {
+            if (
+              loaderContext.resourcePath.indexOf("/mint-js-demo/test.html") !=
+              -1
+            ) {
+              // 入口页 修改title 因为html-loader直接对html进行解析，因此需要单独设置
+              content = content
+                .replace(
+                  /(?:.*?)<script(?:.*?)src=[\"\'](.+?)[\"\'](?!<)(?:.*)\>(?:<\/script>)(?:.*?)*/g,
+                  ""
+                )
+                .replace(
+                  /<title>(?:.*?)<\/title>*/g,
+                  "<title>mint-js-demo</title>"
+                );
+            }
+            return content;
+          },
+          minimize: true,
+        },
+      },
     ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       chunks: ["mint-progress-bar/progress-bar"],
-      title: "mint-js-demo",
+      title: "mint-js-demo", // 和html-loader冲突  该配置不生效
       filename: "index.html",
       template: "test.html",
+      scriptLoading: "blocking", // 打包html后的script标签不加defer属性
       minify: {
         //压缩HTML文件
         removeComments: true, //移除HTML中的注释

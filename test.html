@@ -52,8 +52,9 @@
   <!-- <script src="./src/chainPromise.min.js"></script> -->
   <!-- <script src="./src/subscribe.min.js"></script> -->
   <!-- <script src="./src/indexDB.min.js"></script> -->
-  <script defer>
-    if (window.progress) {
+  <script>
+    setTimeout(() => {
+      if (window.progress) {
       var progress_ins = progress.init({
         domId: "progress1",
       });
@@ -65,6 +66,8 @@
         progress.delPDom(progress_ins2.domId);
       }, 10000);
     }
+    });
+    
   </script>
   <!-- <script>
     // 发布订阅模式测试
