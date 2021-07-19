@@ -94,7 +94,7 @@ module.exports = (env, argv) => {
   }
 
   if (argv.mode === "production") {
-    config.devtool = "cheap-module-source-map";
+    // config.devtool = "cheap-module-source-map";
   }
 
   return config;
