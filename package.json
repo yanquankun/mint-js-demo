@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx webpack serve",
-    "webpack": "webpack",
-    "build:progress":"sh progress-build.sh"
+    "start": "webpack serve --mode=development --config webpack.config.js",
+    "build": "webpack --mode=production --config webpack.config.js",
+    "build:progress": "sh progress-build.sh || progress-build.bat"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "babel-core": "^6.26.3",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "glob": "^7.1.7",
+    "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
     "json-loader": "^0.5.7",
     "json5-loader": "^4.0.1",
